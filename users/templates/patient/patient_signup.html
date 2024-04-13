@@ -1,0 +1,92 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>
+
+      {% block title %}
+        SmartCare
+      {% endblock title %}
+  </title>
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="{% static 'css/costum.css' %}" />
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav class="container-fluid">
+      <ul>
+        <li>
+          <a href="/"><strong>SmartCare</strong></a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <details role="list" dir="rtl">
+            <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+            <ul role="listbox">
+              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+              <li><a href="#" data-theme-switcher="light">Light</a></li>
+              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+            </ul>
+          </details>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- ./ Nav -->
+
+    <!-- Main -->
+    <main class="container">
+      <article class="grid">
+        <div>
+          <hgroup>
+            <h1>Patient SignUp</h1>
+            {% include "messages.html" %}
+          </hgroup>
+          {% block content %}
+          <h2>Patient Signup</h2>
+          {% if show_alert %}
+            <script>
+                alert('Failed to create patient account. Please check the entered information.');
+            </script>
+            {% endif %}
+          <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Sign Up</button>
+          </form>
+          <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+      {% endblock %}
+
+            <br>
+          <br>
+          </div>
+
+        </div>
+        <div></div>
+      </article>
+    </main>
+    <!-- ./ Main -->
+
+  <!-- Footer -->
+  <footer class="container-fluid">
+    <small
+      >Built By Tarek Mshalwat•
+      <a href="" class="secondary"
+        >Source code</a
+      ></small
+    >
+  </footer>
+  <!-- ./ Footer -->
+
+    <!-- Minimal theme switcher -->
+    <script src="{% static 'js/pico.js' %}"></script>
+  </body>
+</html>
+

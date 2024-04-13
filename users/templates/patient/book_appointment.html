@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Book Appointment {% endblock title %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+    <!-- Add CSS links for date and time pickers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.2.0/jquery.timepicker.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/book_appointment.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="appointment-form">
+            <h1>Book an Appointment</h1>
+
+            <!-- Display success message if it exists -->
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Date and Time Pickers -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.2.0/jquery.timepicker.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#datepicker').datepicker({format: 'yyyy-mm-dd'}); // Initialize the date picker with format
+            $('#timepicker').timepicker({ 'timeFormat': 'H:i' }); // Initialize the time picker with format
+        });
+    </script>
+</body>
+</html>
+{% endblock body %}

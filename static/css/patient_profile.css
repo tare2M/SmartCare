@@ -1,0 +1,127 @@
+/* Style for the heading */
+h1 {
+    color: #333; /* Change the color to your preference */
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+/* Style for the list of appointments */
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+/* Style for each appointment item */
+li {
+    margin-bottom: 5px; /* Add some bottom margin for spacing between appointments */
+    border-bottom: 1px solid #ccc; /* Add a horizontal border between appointments */
+    padding-bottom: 5px; /* Add some padding below each appointment */
+}
+
+/* Style for the appointment date */
+li span.appointment-date {
+    font-weight: bold; /* Make the date bold */
+    color: #666; /* Change the color to your preference */
+}
+
+/* Style for the appointment time */
+li span.appointment-time {
+    color: #999; /* Change the color to your preference */
+}
+
+/* Style for the appointment doctor */
+li span.appointment-doctor {
+    color: #777; /* Change the color to your preference */
+}
+
+/* Chat button styles */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Chat window styles */
+.chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: none; /* Initially hidden */
+    z-index: 9999;
+    height: 400px; /* Set a fixed height for the chat window */
+    overflow-y: auto; /* Enable scrolling for chat history */
+}
+
+/* Chat header styles */
+.chat-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close chat button styles */
+.close-chat {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Chat history styles */
+.chat-history {
+    max-height: 350px; /* Adjust max-height to accommodate chat header and form */
+    padding: 10px;
+}
+
+/* User and chatbot message styles */
+.user-message {
+    text-align: right;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.chatbot-message {
+    text-align: left;
+    margin-bottom: 10px;
+    background-color: #e6e6e6;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Input and submit button styles */
+#user-message {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 25%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+}

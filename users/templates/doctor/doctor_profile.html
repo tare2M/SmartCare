@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Doctor Profile{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container">
+  <style>
+    .welcome-message {
+        background-color: #a2d7e8;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        margin-bottom: 20px;
+    }
+  </style>
+  <div class="welcome-message">
+    <h2>Welcome, {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h2>
+</div>
+  <!-- Add doctor-specific content here -->
+
+  <h1>My Schedule</h1>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Patient</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appointment in appointments %}
+        <tr>
+          <td>{{ appointment.date }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>{{ appointment.patient.user}}</td>
+          <td>{{ appointment.status }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">No appointments scheduled.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock body %}
+
